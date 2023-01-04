@@ -201,7 +201,7 @@
           </b-row>
           <div class="row d-flex justify-content-center">
             <div v-for="(item, i) in movie" :key="i" class="col-md-5ths px-3 mb-4">
-              <ProductMovie :img="item.img" :title="item.title" :tahun="item.tahun" :rate="item.rate" />
+              <ProductMovie :img="item.img" :title="item.title" :tahun="item.tahun" :rate="item.rate" :url="replaceName(item.title)" />
             </div>
           </div>
         </b-container>
@@ -250,5 +250,10 @@ export default class Slug extends Vue {
       rate: '7.0'
     }
   ]
+
+  replaceName (str:string) {
+    str = str.replace(/\s+/g, '-').toLowerCase()
+    return str
+  }
 }
 </script>
